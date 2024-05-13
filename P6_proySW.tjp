@@ -5,7 +5,7 @@
  * some elements of it
  */
 
-project pSix "Web Game"  2023-03-15 +3.5m {
+project pSix "Web Game"  2023-03-15 +2.5m {
   # Set the default time zone for the project. If not specified, UTC
   # is used.
   timezone "Europe/Paris"
@@ -22,6 +22,8 @@ project pSix "Web Game"  2023-03-15 +3.5m {
   now 2023-04-15-13:00
   # The currency for all money values is the US Dollar.
   currency "EUR"
+  # End date
+  end 2023-06-30
 
   # We want to compare the baseline scenario to one with the current one.
   scenario plan "Plan" {
