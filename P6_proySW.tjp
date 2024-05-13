@@ -20,7 +20,7 @@ project pSix "Web Game"  2023-03-15 - 2023-06-30 {
   # the project reports. If not specified, the current day will be
   # used, but this will likely be outside of the project range, so it
   # can't be seen in the reports.
-  now 2023-04-15-13:00
+  now 2023-05-13-13:00
   # The currency for all money values is the US Dollar.
   currency "EUR"
 
@@ -202,6 +202,7 @@ task WMGame "Web & Mobile Game" {
   }
 
   task ttest "Accpetance tests" {
+    start 2023-06-01
       effort 10d
       allocate boss
       allocate dev2
@@ -311,6 +312,11 @@ textreport frame "" {
     title "Resource Graph"
     center '<[report id="resourceGraph"]>'
   }
+  textreport "Plan" {
+    formats html
+    title "Planning"
+    center '<[report id="informe"]>'
+  }
 }
 
 # A traditional Gantt chart with a project overview.
@@ -405,6 +411,16 @@ resourcereport contactList "" {
 resourcereport resourceGraph "" {
   scenarios actual
   headline "Current Resource Allocation Graph"
+  columns no, name, effort, rate, weekly { ${TaskTip} }
+  loadunit shortauto
+  # We only like to show leaf tasks for leaf resources.
+  hidetask ~(isleaf() & isleaf_())
+  sorttasks plan.start.up
+}
+
+resourcereport informe "" {
+  scenarios actual
+  headline "Informe Adicional"
   columns no, name, effort, rate, weekly { ${TaskTip} }
   loadunit shortauto
   # We only like to show leaf tasks for leaf resources.
