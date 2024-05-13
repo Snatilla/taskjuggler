@@ -5,7 +5,7 @@
  * some elements of it
  */
 
-project pSix "Web Game"  2023-03-15 +2.5m {
+project pSix "Web Game"  2023-03-15 +3.5m {
   # Set the default time zone for the project. If not specified, UTC
   # is used.
   timezone "Europe/Paris"
@@ -208,7 +208,7 @@ task WMGame "Web & Mobile Game" {
       journalentry 2023-04-13 "Problems with the planned dates" {
         author boss
         alert red
-        summary "The whole team asiigned to this task has a trip to visit a new client from May 7th to May 12th. Needed to check if the project can be finished on time or it is necessary to reasign efforts."
+        summary "The whole team asiigned to this task has a trip to visit a new client from June 7th to June 12th. Needed to check if the project can be finished on time or it is necessary to reasign efforts."
       }
       depends WMGame.twebF
       depends WMGame.tback
