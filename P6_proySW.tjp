@@ -68,6 +68,9 @@ resource dev2 "Samantha Müller" {
 resource dev3 "Peter Green" {
   email "kkk@unizar.es"
 }
+resource dev4 "Jon Garcia" {
+  email "ggg@unizar.es"
+}
 
 # Now we specify the work packages. The whole project is described as
 # a task that contains subtasks. These subtasks are then broken down
@@ -123,19 +126,19 @@ task WMGame "Web & Mobile Game" {
   task tbackC "Back End Cloud Deployment" {
     purge chargeset
     chargeset back
-    responsible dev1
+    responsible dev4
     depends WMGame.tgdesign
     task tBEi "Search for Info" {
       # The effort to finish this task is 5 man-days.
       effort 4d
-      allocate dev1
+      allocate 4
     }
     task tBEd "Desployment" {
       effort 10d
       actual:effort 11d
-      allocate dev1, dev2
+      allocate dev4
       depends WMGame.tback.tBEd
-      journalentry 2023-03-25 "Deployment completed before deadline" {
+      journalentry 2023-03-28 "Deployment completed before deadline" {
         author boss
         alert green
         summary "The team has deployed backend before deadline."
@@ -173,26 +176,26 @@ task WMGame "Web & Mobile Game" {
   task tmobileF "Mobile Front End" {
     purge chargeset
     chargeset wFront
-    responsible dev2
+    responsible dev4
     depends WMGame.tback.tBEd
     task tGUId "Mobile GUI Design" {
       effort 10d
       actual:effort 16d
-      allocate dev2
+      allocate dev4
       journalentry 2023-04-11 "Problems with the GUI design tool" {
-        author dev2
+        author dev4
         alert yellow
         summary "The tool used for the GUI design has given me a lot of problems. I recommend to look for other one."
       }
     }
     task tFEc "Mobile Front End Construction" {
       effort 15d
-      allocate dev2, dev3
+      allocate dev4
       depends WMGame.tmobileF.tGUId
     }
     task tFEt "Mobile Front End Test" {
       effort 6d
-      allocate dev1
+      allocate dev4
       depends WMGame.tmobileF.tFEc
     } 
   }
