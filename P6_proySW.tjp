@@ -53,6 +53,11 @@ account rev "Payments"
 # The Profit&Loss analysis should be rev - cost accounts.
 balance cost rev
 
+# We define a shift that is used by the resource dev5.
+shift myShift "morning4h"{
+  workinghours mon-fri 08:00-12:00
+}
+
 resource boss "Liz Bullock" {
   email "iiii@unizar.es"
   actual:leaves project 2023-05-07 - 2023-05-12
@@ -77,10 +82,6 @@ resource dev5 "Santiago Illa" {
   shifts myShift
 }
 
-# We define a shift that is used by the resource dev5.
-shift myShift {
-  workinghours mon-fri 08:00-12:00
-}
 
 # Now we specify the work packages. The whole project is described as
 # a task that contains subtasks. These subtasks are then broken down
