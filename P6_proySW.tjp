@@ -182,19 +182,19 @@ task WMGame "Web & Mobile Game" {
       effort 10d
       actual:effort 16d
       allocate dev4
-      journalentry 2023-04-11 "Problems with the GUI design tool" {
+      journalentry 2023-04-27 "Problems with the GUI design tool" {
         author dev4
         alert yellow
         summary "The tool used for the GUI design has given me a lot of problems. I recommend to look for other one."
       }
     }
     task tFEc "Mobile Front End Construction" {
-      effort 15d
+      effort 10d
       allocate dev4
       depends WMGame.tmobileF.tGUId
     }
     task tFEt "Mobile Front End Test" {
-      effort 6d
+      effort 4d
       allocate dev4
       depends WMGame.tmobileF.tFEc
     } 
