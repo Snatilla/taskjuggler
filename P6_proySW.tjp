@@ -131,7 +131,7 @@ task WMGame "Web & Mobile Game" {
     task tBEi "Search for Info" {
       # The effort to finish this task is 5 man-days.
       effort 4d
-      allocate 4
+      allocate dev4
     }
     task tBEd "Desployment" {
       effort 10d
