@@ -192,7 +192,7 @@ task WMGame "Web & Mobile Game" {
     task tGUId "Mobile GUI Design" {
       effort 10d
       actual:effort 16d
-      allocate dev4
+      allocate dev5
       journalentry 2023-04-27 "Problems with the GUI design tool" {
         author dev4
         alert yellow
