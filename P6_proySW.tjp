@@ -69,8 +69,17 @@ resource dev2 "Samantha Müller" {
 resource dev3 "Peter Green" {
   email "kkk@unizar.es"
 }
-resource dev4 "Jon Garcia" {
+resource dev4 "Juan Garcia" {
   email "ggg@unizar.es"
+}
+resource dev5 "Santiago Illa" {
+  email "sss@unizar.es"
+  shifts myShift
+}
+
+# We define a shift that is used by the resource dev5.
+shift myShift {
+  workinghours mon-fri 08:00-12:00
 }
 
 # Now we specify the work packages. The whole project is described as
