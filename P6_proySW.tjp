@@ -45,6 +45,7 @@ rate 145.2
 account cost "Project Cost" {
   account manag "Management"
   account wFront "Web Front-End"
+  account mFront "Mobile Front-End"
   account back "Back-End"
 }
 account rev "Payments"
@@ -119,6 +120,29 @@ task WMGame "Web & Mobile Game" {
     }
   }
 
+  task tbackC "Back End Cloud Deployment" {
+    purge chargeset
+    chargeset back
+    responsible dev1
+    depends WMGame.tgdesign
+    task tBEi "Search for Info" {
+      # The effort to finish this task is 5 man-days.
+      effort 4d
+      allocate dev1
+    }
+    task tBEd "Desployment" {
+      effort 10d
+      actual:effort 11d
+      allocate dev1, dev2
+      depends WMGame.tback.tBEd
+      journalentry 2023-04-14 "Deployment completed before deadline" {
+        author boss
+        alert green
+        summary "The team has deployed backend before deadline."
+      }
+    }
+  }
+
   task twebF "Web Front End" {
     purge chargeset
     chargeset wFront
@@ -144,6 +168,33 @@ task WMGame "Web & Mobile Game" {
       allocate dev1
       depends WMGame.twebF.tFEc
     }    
+  }
+
+  task tmobileF "Mobile Front End" {
+    purge chargeset
+    chargeset wFront
+    responsible dev2
+    depends WMGame.tback.tBEd
+    task tGUId "Mobile GUI Design" {
+      effort 10d
+      actual:effort 16d
+      allocate dev2
+      journalentry 2023-04-11 "Problems with the GUI design tool" {
+        author dev2
+        alert yellow
+        summary "The tool used for the GUI design has given me a lot of problems. I recommend to look for other one."
+      }
+    }
+    task tFEc "Mobile Front End Construction" {
+      effort 15d
+      allocate dev2, dev3
+      depends WMGame.tmobileF.tGUId
+    }
+    task tFEt "Mobile Front End Test" {
+      effort 6d
+      allocate dev1
+      depends WMGame.tmobileF.tFEc
+    } 
   }
 
   task ttest "Accpetance tests" {
